@@ -1,0 +1,118 @@
+.tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 14px;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  margin: 12px;
+  margin-top: 50px;
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.tab-tile {
+  padding: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.tab-tile i {
+  color: #222;
+}
+
+.tab.selected .tab-tile {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0, 0, 2);
+          transition-timing-function: cubic-bezier(0, 0, 0, 2);
+}
+
+.tab-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  opacity: 0.9;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.bookmarks-tab .tab-tile::before {
+  background: linear-gradient(45deg, #e6ac9e, #c7b7e4);
+}
+
+.todos-tab .tab-tile::before {
+  background: linear-gradient(45deg, #a2ffff, #ffbdde);
+}
+
+.notes-tab .tab-tile::before {
+  background: linear-gradient(45deg, #d2cdff, #5fffbc);
+}
+
+.tab-tile:hover::before {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.tab.selected .tab-tile::before {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 7px 17px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 7px 17px rgba(0, 0, 0, 0.2);
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  width: 50%;
+  margin: auto;
+  background-color: rgba(240, 232, 232, 0.85);
+  border-radius: 2px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  opacity: 0;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+.tab.selected::after {
+  opacity: 1;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.tab.selected {
+  outline: none;
+}
+/*# sourceMappingURL=tabs.component.css.map */

@@ -1,0 +1,23 @@
+<div class="add-note-wrapper container has-blurred-white-bg">
+    <h2 class="is-bold">New Note</h2>
+    <!-- send data from input to datatable using onformsubmit func and using ngModel -->
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)" >
+        <div class="form-field">
+            <input class="textbox" ngModel #titleField="ngModel" name="title" type="text" placeholder="Enter note title..." required minlength="3">
+            <ng-container *ngIf=" showValidationErrors && titleField.invalid">
+            <!-- <p *ngIf="titleField.errors?.['required']">Please Enter a note title</p> correct one  -->
+            <p *ngIf="titleField.errors?.['required']">Please Enter a note title</p>
+            <p *ngIf="titleField.errors?.['minlength']">Title must be at least 3 characters</p>
+            </ng-container>
+        </div>
+        <div class="form-field">
+        <textarea class="textarea"  ngModel name="content" placeholder="Enter note content..."></textarea>
+        </div>
+ 
+        <div class="btns-container">
+            <a routerLink="../" class="btn"> Cancel</a>
+            <button type="submit" class="btn align-end">Create Note</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,10 @@
+<!-- ///target="_blank" used to open bookmark in new tab  -->
+<a [href]="bookmark?.url" target="_blank"class="bookmark-tile">
+    <div class="tile-icon" *ngIf="!faviconError" >
+    <img [src]="titleIconSrc" alt="" (error)="faviconError=true">
+    </div>
+    <div class="tile-icon fallback" *ngIf="faviconError">
+        {{bookmark?.name.toUpperCase()[0]}}
+    </div>
+    <p class="tile-text">{{bookmark?.name}}</p>
+</a>
